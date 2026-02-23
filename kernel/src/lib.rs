@@ -111,7 +111,7 @@ pub use log_path::LogPath;
 mod row_tracking;
 
 mod arrow_compat;
-#[cfg(any(feature = "arrow-56", feature = "arrow-57"))]
+#[cfg(feature = "arrow-58")]
 pub use arrow_compat::*;
 
 pub mod kernel_predicates;

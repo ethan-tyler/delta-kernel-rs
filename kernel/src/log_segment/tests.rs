@@ -2,7 +2,7 @@ use std::sync::LazyLock;
 use std::{path::PathBuf, sync::Arc};
 
 use itertools::Itertools;
-use object_store::{memory::InMemory, path::Path, ObjectStore};
+use object_store::{memory::InMemory, path::Path, ObjectStoreExt};
 use test_log::test;
 use url::Url;
 

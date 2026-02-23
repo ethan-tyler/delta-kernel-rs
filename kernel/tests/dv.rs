@@ -4,6 +4,12 @@ use std::ops::Add;
 use std::path::PathBuf;
 
 use delta_kernel::{DeltaResult, EngineData, Snapshot};
+use object_store::ObjectStoreExt;
+use tempfile::tempdir;
+use test_utils::{
+    create_add_files_metadata, create_table, engine_store_setup, generate_batch, into_record_batch,
+    record_batch_to_bytes, IntoArray,
+};
 
 use itertools::Itertools;
 use test_log::test;

@@ -21,8 +21,11 @@ use delta_kernel::{DeltaResult, Engine, EngineData, Snapshot};
 use itertools::Itertools;
 use object_store::local::LocalFileSystem;
 use object_store::memory::InMemory;
-use object_store::{path::Path, ObjectStore};
-use serde_json::{json, to_vec};
+use object_store::{path::Path, ObjectStore, ObjectStoreExt};
+use serde_json::{json, to_vec, Deserializer};
+use std::sync::Mutex;
+use tracing::subscriber::DefaultGuard;
+use tracing_subscriber::layer::SubscriberExt;
 use url::Url;
 
 /// unpack the test data from {test_parent_dir}/{test_name}.tar.zst into a temp dir, and return the

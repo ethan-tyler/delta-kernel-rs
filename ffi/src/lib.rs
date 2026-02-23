@@ -882,7 +882,12 @@ mod tests {
     };
     use delta_kernel::engine::default::DefaultEngine;
     use object_store::memory::InMemory;
-    use test_utils::{actions_to_string, actions_to_string_partitioned, add_commit, TestAction};
+    use object_store::path::Path;
+    use object_store::ObjectStoreExt;
+    use serde_json::Value;
+    use test_utils::{
+        actions_to_string, actions_to_string_partitioned, add_commit, TestAction, METADATA,
+    };
 
     #[no_mangle]
     extern "C" fn allocate_null_err(_: KernelError, _: KernelStringSlice) -> *mut EngineError {
